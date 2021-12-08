@@ -1,0 +1,19 @@
+<div>
+  <h2>Tasks</h2>
+
+  <div>
+    <label for="task">Tarefa </label>
+    <input type="text" id="task" #task />
+    <br /><br />
+    <button type="button" (click)="this.taskService.addTask(task.value);task.value=''">
+      Adicionar Tarefa
+    </button>
+  </div>
+  <div>
+    <h2>Minhas Tarefas</h2>
+    <ul *ngFor="let item of this.taskService.getTasks();index as i">
+      <li>{{i+1}} {{ item.nome }} 
+        <button (click)="this.taskService.delTask(i)">X</button> </li>
+    </ul>
+  </div>
+</div>
